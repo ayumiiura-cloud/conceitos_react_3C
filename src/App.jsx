@@ -1,20 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import Cadastro from './paginas/Cadastro'
+import Login from './paginas/Login'
 
 function App() {
-  const [carro, setcarro] = useState('BMW')
+  const [tela, setTela] = useState('login')
 
-  function trocardecarro() {
-    setcarro("Mustang")
+  const trocarDeTela = (pagina) => {
+    setTela(pagina)
+  }
+
+  const renderizar = () => {
+    if (tela === 'login') {
+      return <Login/>
+    } else if (tela === 'cadastro') {
+      return <Cadastro/>
+    } 
+    else {
+      return <Login/>
+    }
   }
 
   return (
     <>
-      <h1>{carro}</h1>
-      <button onClick={trocardecarro}>trocar de carro</button>
+      <button onClick={() => trocarDeTela('cadastro')}>Cadastro</button>
+      <button onClick={() => trocarDeTela('login')}>Login</button>
+      
+      <hr />
+      {renderizar()}
     </>
   )
 }
