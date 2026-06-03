@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Cadastro from './paginas/Cadastro'
+import Usuarios from './paginas/Usuarios'
 import Login from './paginas/Login'
+import Cadastro from './paginas/Cadastro'
 
 function App() {
   const [tela, setTela] = useState('login')
@@ -27,6 +28,7 @@ function App() {
     <>
       <button onClick={() => trocarDeTela('cadastro')}>Cadastro</button>
       <button onClick={() => trocarDeTela('login')}>Login</button>
+      <button onClick={() => trocarDeTela('usuarios')}>Usuários</button>
       
       <hr />
       {renderizar()}
